@@ -51,21 +51,34 @@ Specifications:
 # Repository Structure
 
 
-data-warehouse-project/
-│
-├── datasets/                           # Raw datasets used for the project (ERP and CRM data)
-│
-│
-├── scripts/                            # SQL scripts for ETL and transformations
-│   ├── bronze/                         # Scripts for extracting and loading raw data
-│   ├── silver/                         # Scripts for cleaning and transforming data
-│   ├── gold/                           # Scripts for creating analytical models
-│
-├── tests/                              # Test scripts and quality files
-│
-├── README.md                           # Project overview and instructions
-├── LICENSE                             # License information for the repository
-├── .gitignore                          # Files and directories to be ignored by Git
++---datasets
+|   +---source_crm
+|   |       cust_info.csv
+|   |       prd_info.csv
+|   |       sales_details.csv
+|   |       
+|   \---source_erp
+|           CUST_AZ12.csv
+|           LOC_A101.csv
+|           PX_CAT_G1V2.csv
+|           
++---scripts
+|   |   init_database.sql
+|   |   
+|   +---bronze
+|   |       ddl_bronze.sql
+|   |       proc_load_bronze.sql
+|   |       
+|   +---gold
+|   |       ddl_gold.sql
+|   |       
+|   \---silver
+|           ddl_silver.sql
+|           proc_load_silver.sql
+|           
+\---tests
+        quality_checks_gold.sql
+        quality_checks_silver.sql
 
 
 
